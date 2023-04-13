@@ -28,10 +28,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>List of cities</h2>
+                <h2>List of countries</h2>
             </div>
             <div class="pull-right mb-2">
-                <a class="btn btn-primary" href="{{ route('city.create') }}">Add new city</a>
+                <a class="btn btn-primary" href="{{ route('country.create') }}">Add new country</a>
             </div>
         </div>
     </div>
@@ -43,28 +43,28 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Code</th>
                 <th>Name</th>
-                <th>Country Code</th>
-                <th>District</th>
+                <th>Continent</th>
+                <th>Region</th>
                 <th>Population</th>
-                <th width="230px">Action</th>
+                <th width="150px">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($city as $city)
+            @foreach ($country as $country)
             <tr>
-                <td>{{ $city->ID }}</td>
-                <td>{{ $city->Name }}</td>
-                <td>{{ $city->CountryCode }}</td>
-                <td>{{ $city->District }}</td>
-                <td>{{ $city->Population }}</td>
+                <td>{{ $country->Code }}</td>
+                <td>{{ $country->Name }}</td>
+                <td>{{ $country->Continent }}</td>
+                <td>{{ $country->Region }}</td>
+                <td>{{ $country->Population }}</td>
                 <td>
-                    <form action="{{ route('city.destroy',$city->ID) }}" method="Post">
-                        <a class="btn btn-primary"href="{{ route('city.edit',$city->ID) }}">Edit</a>
+                    <form action="{{ route('country.destroy',$country->Code) }}" method="Post">
+                        <a class="btn btn-primary"href="{{ route('country.edit',$country->Code) }}">Edit</a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <!-- button type="submit" class="btn btn-danger">Delete</button -->
                     </form>
                 </td>
             </tr>

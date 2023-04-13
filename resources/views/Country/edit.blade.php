@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Edit City</title>
+    <title>Edit Country</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -31,10 +31,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit City</h2>
+                <h2>Edit Country</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('city.index') }}" enctype="multipart/form-data">
+                <a class="btn btn-primary" href="{{ route('country.index') }}" enctype="multipart/form-data">
                 Back</a>
             </div>
         </div>
@@ -44,14 +44,14 @@
         {{ session('status') }}
     </div>
     @endif
-    <form action="{{ route('city.update',$city->ID) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('country.update',$country->Code) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Name:</strong>
-                    <input type="text" name="Name" value="{{ $city->Name }}" class="form-control"
+                    <input type="text" name="Name" value="{{ $country->Name }}" class="form-control"
                     placeholder="Name">
                     @error('name')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -60,21 +60,20 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Country Code:</strong><br>
-                    <a style="color:red;">Country Code must be an already existing Country Code such as AFG for Afghanistan etc.</a><br>
-                    <input type="countrycode" name="CountryCode" class="form-control" placeholder="CountryCode"
-                    value="{{ $city->CountryCode }}">
-                    @error('countrycode')
+                    <strong>Continent:</strong><br>
+                    <input type="text" name="Continent" class="form-control" placeholder="Continent"
+                    value="{{ $country->Continent }}">
+                    @error('continent')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>District:</strong>
-                    <input type="text" name="District" value="{{ $city->District }}" class="form-control"
-                    placeholder="District">
-                    @error('district')
+                    <strong>Region:</strong>
+                    <input type="text" name="Region" value="{{ $country->Region }}" class="form-control"
+                    placeholder="Region">
+                    @error('region')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
@@ -82,7 +81,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Population:</strong>
-                    <input type="text" name="Population" value="{{ $city->Population }}" class="form-control"
+                    <input type="text" name="Population" value="{{ $country->Population }}" class="form-control"
                     placeholder="Population">
                     @error('population')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
